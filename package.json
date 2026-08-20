@@ -1,0 +1,54 @@
+{
+  "name": "bank-of-guyana-exchange-rate",
+  "version": "1.2.6",
+  "description": "Official Bank of Guyana (Guyana) weekly exchange rates — 1 currency vs GYD, current table, archive from 2026. Zero-dependency Node.js/TypeScript client.",
+  "keywords": [
+    "bogy",
+    "bank",
+    "of",
+    "guyana",
+    "exchange-rate",
+    "exchange-rates",
+    "currency",
+    "forex",
+    "fx",
+    "gyd",
+    "central-bank",
+    "official-rates",
+    "guyana",
+    "api",
+    "typescript"
+  ],
+  "homepage": "https://allratestoday.com/central-bank-rates-api/bogy/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AllRates-Today/bank-of-guyana-exchange-rate.git"
+  },
+  "bugs": {
+    "url": "https://github.com/AllRates-Today/bank-of-guyana-exchange-rate/issues"
+  },
+  "license": "MIT",
+  "author": "AllRatesToday <hello@allratestoday.com> (https://allratestoday.com)",
+  "type": "module",
+  "main": "./index.cjs",
+  "module": "./index.mjs",
+  "types": "./index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "import": "./index.mjs",
+      "require": "./index.cjs"
+    }
+  },
+  "files": [
+    "index.mjs",
+    "index.cjs",
+    "index.d.ts",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "sideEffects": false
+}
