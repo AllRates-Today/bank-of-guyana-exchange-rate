@@ -85,10 +85,10 @@ const pair = await getRate('USD', 'GYD', { apiKey: 'art_live_...' });
 {
   bank: 'bogy',
   name: 'Bank of Guyana',
-  rate_date: '2026-09-07',   // Bank of Guyana's own publication date
+  rate_date: '2026-09-24',   // Bank of Guyana's own publication date
   source: 'USD',
   target: 'GYD',
-  rate: 213.8,
+  rate: 215.67,
   rate_type: 'middle',
   derived: false,
   method: 'published',
@@ -113,11 +113,11 @@ console.log(table.rate_date, table.rates.length);
 {
   bank: 'bogy',
   name: 'Bank of Guyana',
-  rate_date: '2026-09-07',
+  rate_date: '2026-09-24',
   rates: [
-    { "base": "USD", "quote": "GYD", "type": "middle", "value": 213.8 },
-    { "base": "USD", "quote": "GYD", "type": "sell", "value": 215.46 },
-    { "base": "USD", "quote": "GYD", "type": "buy", "value": 212.14 },
+    { "base": "USD", "quote": "GYD", "type": "middle", "value": 215.67 },
+    { "base": "USD", "quote": "GYD", "type": "sell", "value": 215.73 },
+    { "base": "USD", "quote": "GYD", "type": "buy", "value": 215.6 },
     // … the rest of the published table (1 currency vs GYD)
   ],
   disclaimer: '…'
@@ -157,7 +157,7 @@ Paid plans. One resolved rate per publication date — ready for charting, reval
 import { getHistory } from 'bank-of-guyana-exchange-rate';
 
 const series = await getHistory(
-  { source: 'USD', target: 'GYD', from: '2026-01-01', to: '2026-09-07' },
+  { source: 'USD', target: 'GYD', from: '2026-01-01', to: '2026-09-24' },
   { apiKey: 'art_live_...' }
 );
 ```
@@ -170,11 +170,11 @@ const series = await getHistory(
   source: 'USD',
   target: 'GYD',
   from: '2026-01-01',
-  to: '2026-09-07',
+  to: '2026-09-24',
   count: 152,
   rates: [
     // one entry per publication date
-    { date: '2026-09-07', rate: 213.8, rate_type: 'middle', derived: false, method: 'published' },
+    { date: '2026-09-24', rate: 215.67, rate_type: 'middle', derived: false, method: 'published' },
     // …
   ],
   disclaimer: '…'
