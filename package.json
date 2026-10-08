@@ -1,6 +1,6 @@
 {
   "name": "bank-of-guyana-exchange-rate",
-  "version": "1.3.5",
+  "version": "1.3.6",
   "description": "Official Bank of Guyana (Guyana) weekly exchange rates — 1 currency vs GYD, current table, archive from 2026. Zero-dependency Node.js/TypeScript client.",
   "keywords": [
     "bogy",
