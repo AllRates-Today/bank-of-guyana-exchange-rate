@@ -42,13 +42,13 @@ The open endpoint serves the *latest* table only and asks for a visible attribut
 The image is rendered live from the keyless endpoint above, so it follows the central bank's publications on npm and on GitHub alike without a new release. The text copy below is there for search and copy-paste: on GitHub [a daily Action](.github/workflows/daily-table.yml) refreshes it whenever the central bank publishes a new table; on npm it is as of the package's publish date.
 
 <!-- daily-table:start -->
-Published **2026-09-24** by Bank of Guyana (the API currently flags this table as stale) — 3 rates. Updated 2026-10-17.
+Published **2026-10-15** by Bank of Guyana — 3 rates. Updated 2026-10-17.
 
 | Base | Quote | Type | Rate |
 | --- | --- | --- | ---: |
-| USD | GYD | buy | 215.6 |
-| USD | GYD | middle | 215.67 |
-| USD | GYD | sell | 215.73 |
+| USD | GYD | buy | 214.54 |
+| USD | GYD | middle | 214.91 |
+| USD | GYD | sell | 215.27 |
 
 Source: [Official rates published by BOGY, served by AllRatesToday](https://allratestoday.com/central-bank-rates-api/bogy/). Rates are as printed by the central bank; AllRatesToday is not affiliated with it.
 <!-- daily-table:end -->
