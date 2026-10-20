@@ -47,7 +47,7 @@ The image is rendered live from the keyless endpoint above, so it follows the ce
 
 <!-- daily-table:start -->
 <details>
-<summary>Table as text: published 2026-10-15 by Bank of Guyana — 3 rates. Updated 2026-10-19.</summary>
+<summary>Table as text: published 2026-10-15 by Bank of Guyana — 3 rates. Updated 2026-10-20.</summary>
 
 | Base | Quote | Type | Rate |
 | --- | --- | --- | ---: |
