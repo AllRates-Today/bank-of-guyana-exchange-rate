@@ -46,18 +46,7 @@ The open endpoint serves the *latest* table only (JSON by default; add `?format=
 The image is rendered live from the keyless endpoint above, so it follows the central bank's publications on npm and on GitHub alike without a new release. The same table as text is folded below for search and copy-paste: on GitHub [a daily Action](.github/workflows/daily-table.yml) refreshes it whenever the central bank publishes a new table; on npm it is as of the package's publish date.
 
 <!-- daily-table:start -->
-<details>
-<summary>Table as text: published 2026-10-15 by Bank of Guyana — 3 rates. Updated 2026-10-27.</summary>
-
-| Base | Quote | Type | Rate |
-| --- | --- | --- | ---: |
-| USD | GYD | buy | 214.54 |
-| USD | GYD | middle | 214.91 |
-| USD | GYD | sell | 215.27 |
-
-</details>
-
-Source: [Official rates published by BOGY, served by AllRatesToday](https://allratestoday.com/central-bank-rates-api/bogy/). Rates are as printed by the central bank; AllRatesToday is not affiliated with it.
+_The table is filled in by the daily workflow._
 <!-- daily-table:end -->
 
 ## 📦 Installation
@@ -108,11 +97,11 @@ const pair = await getRate('USD', 'GYD', { apiKey: 'art_live_...' });
 {
   bank: 'bogy',
   name: 'Bank of Guyana',
-  rate_date: '2026-09-24',   // Bank of Guyana's own publication date
+  rate_date: '2026-10-15',   // Bank of Guyana's own publication date
   source: 'USD',
   target: 'GYD',
-  rate: 215.67,
-  rate_type: 'middle',
+  rate: 208.5,
+  rate_type: 'reference',
   derived: false,
   method: 'published',
   disclaimer: 'Official rates as published by the named central bank. On weekends/holidays the most recent published rate_date is returned.'
@@ -136,11 +125,12 @@ console.log(table.rate_date, table.rates.length);
 {
   bank: 'bogy',
   name: 'Bank of Guyana',
-  rate_date: '2026-09-24',
+  rate_date: '2026-10-15',
   rates: [
-    { "base": "USD", "quote": "GYD", "type": "middle", "value": 215.67 },
-    { "base": "USD", "quote": "GYD", "type": "sell", "value": 215.73 },
-    { "base": "USD", "quote": "GYD", "type": "buy", "value": 215.6 },
+    { "base": "USD", "quote": "GYD", "type": "reference", "value": 208.5 },
+    { "base": "USD", "quote": "GYD", "type": "middle", "value": 214.91 },
+    { "base": "EUR", "quote": "GYD", "type": "buy", "value": 224.54 },
+    { "base": "GBP", "quote": "GYD", "type": "sell", "value": 276.37 },
     // … the rest of the published table (1 currency vs GYD)
   ],
   disclaimer: '…'
@@ -180,7 +170,7 @@ Paid plans. One resolved rate per publication date — ready for charting, reval
 import { getHistory } from 'bank-of-guyana-exchange-rate';
 
 const series = await getHistory(
-  { source: 'USD', target: 'GYD', from: '2026-01-01', to: '2026-09-24' },
+  { source: 'USD', target: 'GYD', from: '2026-01-01', to: '2026-10-15' },
   { apiKey: 'art_live_...' }
 );
 ```
@@ -193,11 +183,11 @@ const series = await getHistory(
   source: 'USD',
   target: 'GYD',
   from: '2026-01-01',
-  to: '2026-09-24',
+  to: '2026-10-15',
   count: 152,
   rates: [
     // one entry per publication date
-    { date: '2026-09-24', rate: 215.67, rate_type: 'middle', derived: false, method: 'published' },
+    { date: '2026-10-15', rate: 208.5, rate_type: 'reference', derived: false, method: 'published' },
     // …
   ],
   disclaimer: '…'
@@ -216,7 +206,7 @@ Bank of Guyana currently publishes rates covering **1 currency** against the GYD
 
 ## 🏛️ Source
 
-The Bank of Guyana publishes a market report with the total-market buying, selling and mid rates for the US dollar in Guyanese dollars, aggregated from the bank cambios it licenses. The report is refreshed roughly weekly and is the official record of the Guyanese foreign-exchange market.
+The Bank of Guyana publishes a market report, refreshed roughly weekly, with its official weighted-average market rate for the US dollar (US$1 = G$208.5 in the 15 October 2026 report), the total-market buying, selling and mid rates aggregated from the bank cambios it licenses, and commercial-bank average buying and selling rates for the Canadian dollar, pound sterling and euro. It is the official record of the Guyanese foreign-exchange market.
 
 - Publisher's own page: [Foreign exchange market report](https://bankofguyana.org.gy/bog/images/accounts_budgeting/weeklyratespub.pdf) · [bankofguyana.org.gy](https://bankofguyana.org.gy)
 - Publication: every week; the exact schedule, freshness status and any current delay are on the [Bank of Guyana rates page](https://allratestoday.com/central-bank-rates-api/bogy/)
@@ -225,9 +215,9 @@ The Bank of Guyana publishes a market report with the total-market buying, selli
 ## 🧭 Reading the numbers
 
 - `value` is always **quote currency per 1 unit of base currency** (`base: "EUR", quote: "USD", value: 1.15` means 1 EUR = 1.15 USD).
-- Bank of Guyana quotes **GYD per 1 unit of foreign currency** (e.g. `base: "USD", quote: "GYD"` means GYD per one US dollar).
+- Values are Guyanese dollars per unit. USD has the Bank of Guyana weighted-average market rate (`reference`, the official rate) plus the bank-cambio total-market `buy`, `sell` and `middle`; CAD, GBP and EUR are commercial-bank average `buy` and `sell` rates.
 - Need the other way round? Ask `getRate(target, source)` and the API inverts or crosses for you, flagged `derived: true` — never divide a published rate yourself in a compliance workflow.
-- `rate_type` tells you which of the central bank's series a row belongs to (`middle` here); some publishers print buy/sell or several fixings for the same pair.
+- `rate_type` tells you which of the central bank's series a row belongs to (`reference` here); some publishers print buy/sell or several fixings for the same pair.
 
 ## 🧩 ERP & accounting systems
 
