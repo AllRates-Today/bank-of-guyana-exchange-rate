@@ -46,7 +46,25 @@ The open endpoint serves the *latest* table only (JSON by default; add `?format=
 The image is rendered live from the keyless endpoint above, so it follows the central bank's publications on npm and on GitHub alike without a new release. The same table as text is folded below for search and copy-paste: on GitHub [a daily Action](.github/workflows/daily-table.yml) refreshes it whenever the central bank publishes a new table; on npm it is as of the package's publish date.
 
 <!-- daily-table:start -->
-_The table is filled in by the daily workflow._
+<details>
+<summary>Table as text: published 2026-10-15 by Bank of Guyana (the API currently flags this table as stale) — 10 rates. Updated 2026-10-28.</summary>
+
+| Base | Quote | Type | Rate |
+| --- | --- | --- | ---: |
+| CAD | GYD | buy | 147.72 |
+| CAD | GYD | sell | 162.32 |
+| EUR | GYD | buy | 224.54 |
+| EUR | GYD | sell | 240.34 |
+| GBP | GYD | buy | 259.17 |
+| GBP | GYD | sell | 276.37 |
+| USD | GYD | buy | 214.54 |
+| USD | GYD | middle | 214.91 |
+| USD | GYD | reference | 208.5 |
+| USD | GYD | sell | 215.27 |
+
+</details>
+
+Source: [Official rates published by BOGY, served by AllRatesToday](https://allratestoday.com/central-bank-rates-api/bogy/). Rates are as printed by the central bank; AllRatesToday is not affiliated with it.
 <!-- daily-table:end -->
 
 ## 📦 Installation
