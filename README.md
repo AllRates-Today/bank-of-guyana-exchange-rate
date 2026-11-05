@@ -32,18 +32,18 @@ The image is rendered live from the keyless endpoint, so it follows the central 
 
 <!-- daily-table:start -->
 <details>
-<summary>Table as text: published 2026-11-04 by Bank of Guyana — 13 rates. Updated 2026-11-04.</summary>
+<summary>Table as text: published 2026-11-05 by Bank of Guyana — 13 rates. Updated 2026-11-05.</summary>
 
 | Base | Quote | Type | Rate |
 | --- | --- | --- | ---: |
 | BBD | GYD | buy | 84.65 |
 | BZD | GYD | buy | 102.41 |
-| CAD | GYD | buy | 149.2 |
-| CAD | GYD | sell | 150.94 |
-| EUR | GYD | buy | 233.79 |
-| EUR | GYD | sell | 236.78 |
-| GBP | GYD | buy | 280.25 |
-| GBP | GYD | sell | 283.8 |
+| CAD | GYD | buy | 148.87 |
+| CAD | GYD | sell | 150.6 |
+| EUR | GYD | buy | 233.31 |
+| EUR | GYD | sell | 236.3 |
+| GBP | GYD | buy | 280.19 |
+| GBP | GYD | sell | 283.74 |
 | JMD | GYD | buy | 1.32 |
 | TTD | GYD | buy | 23.29 |
 | USD | GYD | buy | 207.98 |
