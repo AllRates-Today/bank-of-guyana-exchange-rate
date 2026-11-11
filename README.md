@@ -4,16 +4,16 @@
 [![license](https://img.shields.io/npm/l/bank-of-guyana-exchange-rate.svg)](https://github.com/AllRates-Today/bank-of-guyana-exchange-rate/blob/main/LICENSE)
 [![zero dependencies](https://img.shields.io/badge/dependencies-0-brightgreen.svg)](https://www.npmjs.com/package/bank-of-guyana-exchange-rate)
 [![TypeScript](https://img.shields.io/badge/TypeScript-types%20included-3178C6.svg)](https://www.typescriptlang.org/)
-[![USD/GYD today](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fallratestoday.com%2Fapi%2Fopen%2Fcentral-bank%2Fbogy%3Fsource%3DUSD%26target%3DGYD&query=%24.rate&label=USD%2FGYD%20published%20by%20Bank%20of%20Guyana&color=0A7E8C&cacheSeconds=3600)](https://allratestoday.com/central-bank-rates-api/bogy/)
+[![USD/GYD today](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fallratestoday.com%2Fapi%2Fopen%2Fcentral-bank%2Fbogy%3Fsource%3DUSD%26target%3DGYD&query=%24.rate&label=USD%2FGYD%20official%2C%20Bank%20of%20Guyana&color=0A7E8C&cacheSeconds=3600)](https://allratestoday.com/central-bank-rates-api/bogy/)
 [![rate date](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fallratestoday.com%2Fapi%2Fopen%2Fcentral-bank%2Fbogy%3Fsource%3DUSD%26target%3DGYD&query=%24.rate_date&label=rate%20date&color=555&cacheSeconds=3600)](https://allratestoday.com/central-bank-rates-api/bogy/)
 
 **Official Bank of Guyana (Guyana) weekly exchange rates for Node.js and TypeScript. The published central bank rates behind tax filings, customs valuations, audits, and compliant invoicing — not market estimates, but the numbers Bank of Guyana itself prints, every week.**
 
 ## 🚀 Why this client?
 
-- 🏛️ **Official published rates** — Bank of Guyana's own table, with the publisher's own `rate_date` on every response
+- 🏛️ **Official rates** — Bank of Guyana's own table, with the publisher's own `rate_date` on every response
 - 📅 **History from 2026** — this source publishes only its current table, so the archive builds forward from the day we started collecting
-- 🔀 **Published vs derived, always flagged** — computed inverse/cross pairs carry `derived: true`, never mixed with official prints
+- 🔀 **Official vs derived, always flagged** — computed inverse/cross pairs carry `derived: true`, never mixed with official prints
 - ⚡ **Zero dependencies** — pure ESM + CJS over global `fetch`; Node 18+, Bun, Deno, and edge runtimes
 - 🔷 **Type-safe** — full TypeScript definitions shipped with the package
 - 🧾 **Compliance-grade metadata** — `rate_type`, publication date, and source disclaimer on every response
@@ -24,7 +24,7 @@
 
 Get a free API key at [allratestoday.com/register](https://allratestoday.com/register) — no credit card required. Latest rates are on every plan, including free.
 
-## 📈 Latest published table
+## 📈 Latest official table
 
 [![Latest Bank of Guyana table](https://allratestoday.com/api/open/central-bank/bogy/table.svg)](https://allratestoday.com/central-bank-rates-api/bogy/)
 
@@ -32,7 +32,7 @@ The image is rendered live from the keyless endpoint, so it follows the central 
 
 <!-- daily-table:start -->
 <details>
-<summary>Table as text: published 2026-11-10 by Bank of Guyana — 13 rates. Updated 2026-11-10.</summary>
+<summary>Table as text: published 2026-11-10 by Bank of Guyana — 13 rates. Updated 2026-11-11.</summary>
 
 | Base | Quote | Type | Rate |
 | --- | --- | --- | ---: |
@@ -82,8 +82,8 @@ console.log(pair.rate, pair.rate_date); // the official Bank of Guyana rate, on 
 
 ## 📚 API reference
 
-- [Latest pair rate](#latest-pair-rate) — one pair from the latest published table
-- [Full published table](#full-published-table) — everything the central bank printed, in one call
+- [Latest pair rate](#latest-pair-rate) — one pair from the latest official table
+- [Full official table](#full-official-table) — everything the central bank printed, in one call
 - [Table for a date](#table-for-a-date) — the official table for an invoice or filing date
 - [Daily time series](#daily-time-series) — one pair across a date range
 
@@ -91,7 +91,7 @@ console.log(pair.rate, pair.rate_date); // the official Bank of Guyana rate, on 
 
 ### Latest pair rate
 
-Free plan and up. Pairs the central bank does not print directly are resolved from its table and flagged (see *Published vs derived rates* below).
+Free plan and up. Pairs the central bank does not print directly are resolved from its table and flagged (see *Official vs derived rates* below).
 
 ```js
 const pair = await getRate('USD', 'GYD', { apiKey: 'art_live_...' });
@@ -103,18 +103,18 @@ const pair = await getRate('USD', 'GYD', { apiKey: 'art_live_...' });
 {
   bank: 'bogy',
   name: 'Bank of Guyana',
-  rate_date: '2026-10-15',   // Bank of Guyana's own publication date
+  rate_date: '2026-11-10',   // Bank of Guyana's own publication date
   source: 'USD',
   target: 'GYD',
-  rate: 208.5,
-  rate_type: 'reference',
+  rate: 210.45,
+  rate_type: 'sell',
   derived: false,
   method: 'published',
   disclaimer: 'Official rates as published by the named central bank. On weekends/holidays the most recent published rate_date is returned.'
 }
 ```
 
-### Full published table
+### Full official table
 
 Free plan and up. The complete table for the latest publication date.
 
@@ -131,13 +131,11 @@ console.log(table.rate_date, table.rates.length);
 {
   bank: 'bogy',
   name: 'Bank of Guyana',
-  rate_date: '2026-10-15',
+  rate_date: '2026-11-10',
   rates: [
-    { "base": "USD", "quote": "GYD", "type": "reference", "value": 208.5 },
-    { "base": "USD", "quote": "GYD", "type": "middle", "value": 214.91 },
-    { "base": "EUR", "quote": "GYD", "type": "buy", "value": 224.54 },
-    { "base": "GBP", "quote": "GYD", "type": "sell", "value": 276.37 },
-    // … the rest of the published table (1 currency vs GYD)
+    { "base": "USD", "quote": "GYD", "type": "sell", "value": 210.45 },
+    { "base": "USD", "quote": "GYD", "type": "buy", "value": 207.98 },
+    // … the rest of the official table (1 currency vs GYD)
   ],
   disclaimer: '…'
 }
@@ -176,7 +174,7 @@ Paid plans. One resolved rate per publication date — ready for charting, reval
 import { getHistory } from 'bank-of-guyana-exchange-rate';
 
 const series = await getHistory(
-  { source: 'USD', target: 'GYD', from: '2026-01-01', to: '2026-10-15' },
+  { source: 'USD', target: 'GYD', from: '2026-01-01', to: '2026-11-10' },
   { apiKey: 'art_live_...' }
 );
 ```
@@ -189,11 +187,11 @@ const series = await getHistory(
   source: 'USD',
   target: 'GYD',
   from: '2026-01-01',
-  to: '2026-10-15',
+  to: '2026-11-10',
   count: 152,
   rates: [
     // one entry per publication date
-    { date: '2026-10-15', rate: 208.5, rate_type: 'reference', derived: false, method: 'published' },
+    { date: '2026-11-10', rate: 210.45, rate_type: 'sell', derived: false, method: 'published' },
     // …
   ],
   disclaimer: '…'
@@ -212,9 +210,9 @@ Bank of Guyana currently publishes rates covering **1 currency** against the GYD
 
 ## 🏛️ Source
 
-The Bank of Guyana publishes a market report, refreshed roughly weekly, with its official weighted-average market rate for the US dollar (US$1 = G$208.5 in the 15 October 2026 report), the total-market buying, selling and mid rates aggregated from the bank cambios it licenses, and commercial-bank average buying and selling rates for the Canadian dollar, pound sterling and euro. It is the official record of the Guyanese foreign-exchange market.
+The Bank of Guyana posts its foreign exchange rates on its website every business day: buying and selling rates in Guyanese dollars for the US dollar, Canadian dollar, euro and pound sterling, and buying rates for the Belize, Barbados, East Caribbean, Trinidad and Tobago and Jamaican dollars. Its weekly market report adds the Bank's official weighted-average market rate for the US dollar (US$1 = G$208.5 in the 15 October 2026 report), which is served as the reference rate.
 
-- Publisher's own page: [Foreign exchange market report](https://bankofguyana.org.gy/bog/images/accounts_budgeting/weeklyratespub.pdf) · [bankofguyana.org.gy](https://bankofguyana.org.gy)
+- Publisher's own page: [Foreign exchange rates](https://www.bankofguyana.org.gy/bog3/) · [bankofguyana.org.gy](https://bankofguyana.org.gy)
 - Publication: every week; the exact schedule, freshness status and any current delay are on the [Bank of Guyana rates page](https://allratestoday.com/central-bank-rates-api/bogy/)
 - Values are stored unmodified, with the publisher's own `rate_date` on every row — see the [methodology](https://allratestoday.com/official-rates-methodology/)
 
@@ -223,7 +221,7 @@ The Bank of Guyana publishes a market report, refreshed roughly weekly, with its
 - `value` is always **quote currency per 1 unit of base currency** (`base: "EUR", quote: "USD", value: 1.15` means 1 EUR = 1.15 USD).
 - Values are Guyanese dollars per unit. USD has the Bank of Guyana weighted-average market rate (`reference`, the official rate) plus the bank-cambio total-market `buy`, `sell` and `middle`; CAD, GBP and EUR are commercial-bank average `buy` and `sell` rates.
 - Need the other way round? Ask `getRate(target, source)` and the API inverts or crosses for you, flagged `derived: true` — never divide a published rate yourself in a compliance workflow.
-- `rate_type` tells you which of the central bank's series a row belongs to (`reference` here); some publishers print buy/sell or several fixings for the same pair.
+- `rate_type` tells you which of the central bank's series a row belongs to (`sell` here); some publishers print buy/sell or several fixings for the same pair.
 
 ## 🧩 ERP & accounting systems
 
@@ -246,7 +244,7 @@ curl "https://allratestoday.com/api/v1/central-bank/bogy/latest?format=xml&api_k
 - Evaluating? Agents can self-issue a trial key with no signup: `POST https://allratestoday.com/api/agent/keys` (send `Content-Type: application/json`) returns a 100-call key valid 7 days that covers the free-plan methods (latest table, pairs); dated tables and history need a [paid plan](https://allratestoday.com/pricing/). The MCP servers expose it as `request_trial_key`
 - Machine-readable site guide: [llms.txt](https://allratestoday.com/llms.txt) · [for-ai-agents](https://allratestoday.com/for-ai-agents/)
 
-## ⚖️ Published vs derived rates
+## ⚖️ Official vs derived rates
 
 If Bank of Guyana does not print a pair directly, the API resolves it from the central bank's own table and says so — official and computed values are never confused:
 
@@ -296,21 +294,21 @@ getRate('USD', 'GYD', { apiKey: 'art_live_...' }).then((pair) => console.log(pai
 
 ## 💡 Quota tips
 
-- Rates change once a week — cache the published table locally and a small monthly quota goes a long way.
+- Rates change once a week — cache the official table locally and a small monthly quota goes a long way.
 - Every request counts toward your AllRatesToday quota, shared across all AllRatesToday endpoints on your key.
 
 ## 📖 Methods reference
 
 | Method | Plan | Description |
 | ------ | ---- | ----------- |
-| `getRate(source, target, { apiKey })` | Free | Latest rate for one pair, resolved from the published table |
-| `getLatestRates({ apiKey })` | Free | The central bank's full latest published table |
+| `getRate(source, target, { apiKey })` | Free | Latest rate for one pair, resolved from the official table |
+| `getLatestRates({ apiKey })` | Free | The central bank's full latest official table |
 | `getRatesForDate(date, { apiKey, source?, target? })` | Paid | The official table (or one pair) for a YYYY-MM-DD date |
 | `getHistory({ symbol \| source+target, from?, to? }, { apiKey })` | Paid | Daily series since 2026 |
 
 ## 📥 Bulk data (no key)
 
-Need the whole archive rather than an API call? The same published tables are mirrored daily as open data:
+Need the whole archive rather than an API call? The same official tables are mirrored daily as open data:
 
 - Hugging Face: [AllRatesToday/central-bank-exchange-rates](https://huggingface.co/datasets/AllRatesToday/central-bank-exchange-rates) — one CSV per institution (`rates/bogy.csv`)
 - Kaggle: [allratestoday/central-bank-exchange-rates](https://www.kaggle.com/datasets/allratestoday/central-bank-exchange-rates)
@@ -320,7 +318,7 @@ Need the whole archive rather than an API call? The same published tables are mi
 
 - **Website:** [allratestoday.com](https://allratestoday.com)
 - [Bank of Guyana rates page](https://allratestoday.com/central-bank-rates-api/bogy/) — live table, publication cadence, FAQ
-- [All central bank sources](https://allratestoday.com/central-bank-rates-api/)
+- [All central bank sources](https://allratestoday.com/central-bank-rates-api/) · [Full list of 130+ central banks and tax authorities](https://allratestoday.com/central-bank-rates-api/institutions/) — one API, the same response shape for every source
 - [Download central bank rates](https://allratestoday.com/download-central-bank-rates/) — every bank's latest table and history as Excel, CSV or JSON
 - [Package docs on the site](https://allratestoday.com/docs/sdk/bank-of-guyana-exchange-rate/) · [ERP integration guides](https://allratestoday.com/docs/integrations/)
 - [API documentation](https://allratestoday.com/docs/#central-bank) · [Interactive reference](https://allratestoday.com/api-reference/) · [Methodology](https://allratestoday.com/official-rates-methodology/)
