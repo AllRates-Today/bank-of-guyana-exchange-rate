@@ -32,23 +32,23 @@ The image is rendered live from the keyless endpoint, so it follows the central 
 
 <!-- daily-table:start -->
 <details>
-<summary>Table as text: published 2026-11-20 by Bank of Guyana — 13 rates. Updated 2026-11-20.</summary>
+<summary>Table as text: published 2026-11-23 by Bank of Guyana — 13 rates. Updated 2026-11-23.</summary>
 
 | Base | Quote | Type | Rate |
 | --- | --- | --- | ---: |
-| BBD | GYD | buy | 84.65 |
-| BZD | GYD | buy | 102.41 |
-| CAD | GYD | buy | 145.21 |
-| CAD | GYD | sell | 146.9 |
+| BBD | GYD | buy | 84.54 |
+| BZD | GYD | buy | 102.29 |
+| CAD | GYD | buy | 145 |
+| CAD | GYD | sell | 146.69 |
 | EUR | GYD | buy | 227.9 |
 | EUR | GYD | sell | 230.83 |
-| GBP | GYD | buy | 272.62 |
-| GBP | GYD | sell | 276.07 |
+| GBP | GYD | buy | 272.67 |
+| GBP | GYD | sell | 275.82 |
 | JMD | GYD | buy | 1.32 |
-| TTD | GYD | buy | 23.5 |
+| TTD | GYD | buy | 23.26 |
 | USD | GYD | buy | 207.98 |
 | USD | GYD | sell | 210.45 |
-| XCD | GYD | buy | 65.8 |
+| XCD | GYD | buy | 65.72 |
 
 </details>
 
@@ -318,7 +318,7 @@ Need the whole archive rather than an API call? The same official tables are mir
 
 - **Website:** [allratestoday.com](https://allratestoday.com)
 - [Bank of Guyana rates page](https://allratestoday.com/central-bank-rates-api/bogy/) — live table, publication cadence, FAQ
-- [All central bank sources](https://allratestoday.com/central-bank-rates-api/) · [Full list of 130+ central banks and tax authorities](https://allratestoday.com/central-bank-rates-api/institutions/) — one API, the same response shape for every source
+- [All central bank sources](https://allratestoday.com/central-bank-rates-api/) · [Full list of 120+ central banks and 50+ tax authorities](https://allratestoday.com/central-bank-rates-api/institutions/) — one API, the same response shape for every source
 - [Download central bank rates](https://allratestoday.com/download-central-bank-rates/) — every bank's latest table and history as Excel, CSV or JSON
 - [Bank Exchange Rate API](https://allratestoday.com/bank-exchange-rate-api/) — live buy and sell rates from 1,200+ commercial banks in 120+ countries · [npm](https://www.npmjs.com/package/bank-exchange-rates) · [GitHub](https://github.com/AllRates-Today/bank-exchange-rates)
 - [Package docs on the site](https://allratestoday.com/docs/sdk/bank-of-guyana-exchange-rate/) · [ERP integration guides](https://allratestoday.com/docs/integrations/)
